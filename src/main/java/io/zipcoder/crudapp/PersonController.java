@@ -1,5 +1,6 @@
 package io.zipcoder.crudapp;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -9,7 +10,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-public class PersonController {
+public class PersonController implements PersonRepository {
+
+    @Autowired
+    PersonRepository personRepository;
 
     List<Person> personList = new ArrayList<Person>();
 
@@ -49,4 +53,58 @@ public class PersonController {
         }
     }
 
+    @Override
+    public <S extends Person> S save(S s) {
+        return null;
+    }
+
+    @Override
+    public <S extends Person> Iterable<S> save(Iterable<S> iterable) {
+        return null;
+    }
+
+    @Override
+    public Person findOne(Long aLong) {
+        return null;
+    }
+
+    @Override
+    public boolean exists(Long aLong) {
+        return false;
+    }
+
+    @Override
+    public Iterable<Person> findAll() {
+        return personRepository;
+    }
+
+    @Override
+    public Iterable<Person> findAll(Iterable<Long> iterable) {
+        return null;
+    }
+
+    @Override
+    public long count() {
+        return 0;
+    }
+
+    @Override
+    public void delete(Long aLong) {
+
+    }
+
+    @Override
+    public void delete(Person person) {
+
+    }
+
+    @Override
+    public void delete(Iterable<? extends Person> iterable) {
+
+    }
+
+    @Override
+    public void deleteAll() {
+
+    }
 }
