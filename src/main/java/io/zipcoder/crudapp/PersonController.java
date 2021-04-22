@@ -17,6 +17,12 @@ public class PersonController implements PersonRepository {
 
     List<Person> personList = new ArrayList<Person>();
 
+    /*
+    public ResponseEntity<Muffin> update(@PathVariable Long id, @RequestBody Muffin baker) {
+        return new ResponseEntity<>(service.update(id, baker), HttpStatus.OK);
+    }
+     */
+
     @RequestMapping(value = "/people", method = RequestMethod.POST)
     public Person createPerson(Person p){
         personList.add(p);
@@ -75,7 +81,7 @@ public class PersonController implements PersonRepository {
 
     @Override
     public Iterable<Person> findAll() {
-        return personRepository;
+        return null;
     }
 
     @Override
